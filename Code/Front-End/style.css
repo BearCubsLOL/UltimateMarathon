@@ -80,24 +80,25 @@ body {
 }
 
 .plot-section {
-    width: 100%;
+    width: calc(100% - 60px); /* Adjust width here */
     background-color: #333333;
     padding: 20px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     margin-bottom: 20px; /* Spacing between sections */
-    text-align: center;
 }
 
 .plot-content {
     max-width: 800px;
     margin: 0 auto;
+    text-align: left; /* Align text to the left */
 }
 
 .plot-content .section-heading {
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center; /* Center align normal headings */
 }
 
 .plot-description {
@@ -106,30 +107,30 @@ body {
 }
 
 .additional-section {
-    width: 100%;
+    width: calc(100% - 60px); /* Adjust width here */
     background-color: #333333;
     padding: 20px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     margin-bottom: 40px; /* Increased spacing between sections */
-    text-align: center;
 }
 
 .additional-content {
     max-width: 800px;
     margin: 0 auto;
+    text-align: left; /* Align text to the left */
 }
 
 .additional-content .section-heading {
     font-size: 24px;
     margin-bottom: 10px;
+    text-align: center; /* Center align normal headings */
 }
 
 .additional-content > ul {
     list-style-type: none;
     padding-left: 0;
-    text-align: left;
 }
 
 .additional-content > ul > li {
@@ -141,12 +142,39 @@ body {
 .additional-content > ul > li > ul {
     list-style-type: disc; /* Use bullet points for nested lists */
     padding-left: 20px;
+    margin-top: 5px;
+    border-left: 2px solid #ffffff; /* Border to differentiate sub-dropdown */
+    padding-top: 5px; /* Adjust spacing */
+    background-color: #333333; /* Background color for sub-dropdown */
 }
 
 .additional-content > ul > li > ul > li {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 5px;
+}
+
+/* Dropdown styles */
+.dropdown-toggle {
+    display: none; /* Hide checkbox */
+}
+
+.dropdown-label {
+    cursor: pointer;
+    color: #ffffff;
+    margin-left: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #555555;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.dropdown-toggle:checked + .dropdown-label + .dropdown-content {
+    display: block;
 }
 
 .footer {
@@ -187,5 +215,10 @@ body {
         width: calc(50% - 20px);
         max-width: 300px;
         margin: 10px;
+    }
+
+    .plot-section,
+    .additional-section {
+        width: calc(100% - 20px);
     }
 }
