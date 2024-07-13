@@ -1,5 +1,3 @@
-/* style.css */
-
 /* General styles */
 body {
     font-family: 'Roboto', sans-serif;
@@ -62,11 +60,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-around; /* Center align sections on desktop */
+    justify-content: space-between; /* Space between sections */
 }
 
 .game-section {
-    width: 300px;
+    flex: 1 1 calc(25% - 20px); /* Adjust width to 25% minus gap */
+    max-width: calc(25% - 20px); /* Adjust width to 25% minus gap */
     height: 300px;
     background-color: #333333;
     padding: 20px;
@@ -77,16 +76,39 @@ body {
     justify-content: center; /* Center align content horizontally */
     align-items: center; /* Center align content vertically */
     margin-bottom: 20px; /* Spacing between sections */
+    transition: transform 0.3s; /* Smooth zoom transition */
+}
+
+.game-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s; /* Smooth zoom transition */
+}
+
+/* Hover effect for images */
+.game-section:hover img {
+    transform: scale(1.1); /* Zoom in on hover */
+}
+
+/* Make second image slightly bigger */
+.sections .game-section:nth-child(2) img {
+    transform: scale(1.1); /* Slightly bigger by default */
+}
+
+/* Correct hover effect for second image */
+.sections .game-section:nth-child(2):hover img {
+    transform: scale(1.2); /* Slightly bigger zoom on hover for the second image */
 }
 
 .plot-section {
     width: calc(100% - 60px); /* Adjust width here */
     background-color: #333333;
-    padding: 20px;
+    padding: 20px; /* Adjust padding to match the additional section */
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    margin-bottom: 20px; /* Spacing between sections */
+    margin-bottom: 40px; /* Increased spacing between sections */
 }
 
 .plot-content {
@@ -129,29 +151,14 @@ body {
 }
 
 .additional-content > ul {
-    list-style-type: none;
-    padding-left: 0;
+    list-style-type: disc; /* Bullet points for the primary list */
+    padding-left: 20px;
 }
 
 .additional-content > ul > li {
     font-size: 16px;
     line-height: 1.6;
     margin-bottom: 10px;
-}
-
-.additional-content > ul > li > ul {
-    list-style-type: disc; /* Use bullet points for nested lists */
-    padding-left: 20px;
-    margin-top: 5px;
-    border-left: 2px solid #ffffff; /* Border to differentiate sub-dropdown */
-    padding-top: 5px; /* Adjust spacing */
-    background-color: #333333; /* Background color for sub-dropdown */
-}
-
-.additional-content > ul > li > ul > li {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 5px;
 }
 
 /* Dropdown styles */
@@ -171,6 +178,11 @@ body {
     padding: 10px;
     border-radius: 4px;
     margin-top: 5px;
+}
+
+.dropdown-content ul {
+    list-style-type: circle; /* Sub-bullet points for the sub-dropdowns */
+    padding-left: 20px;
 }
 
 .dropdown-toggle:checked + .dropdown-label + .dropdown-content {
@@ -212,8 +224,8 @@ body {
     }
 
     .game-section {
-        width: calc(50% - 20px);
-        max-width: 300px;
+        flex: 1 1 calc(50% - 20px); /* Adjust width to 50% minus gap */
+        max-width: calc(50% - 20px); /* Adjust width to 50% minus gap */
         margin: 10px;
     }
 
@@ -221,4 +233,19 @@ body {
     .additional-section {
         width: calc(100% - 20px);
     }
+}
+
+/* Sub-dropdown specific styles */
+.dropdown-content .dropdown-content {
+    background-color: #333333; /* Change background color for sub-dropdowns */
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    list-style-type: circle; /* Ensure sub-bullet points */
+}
+
+/* Additional styles to ensure correct bullet point handling */
+.dropdown-content > ul > li {
+    list-style-type: circle; /* Sub-bullet points for sub-dropdowns */
+    padding-left: 20px;
 }
